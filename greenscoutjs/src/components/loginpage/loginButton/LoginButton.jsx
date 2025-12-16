@@ -1,8 +1,11 @@
 import "./LoginButton.css"
+import { Navigate, useNavigate } from "react-router-dom";
 
 function LoginButton () {
+    const navigate = useNavigate();
+
     function handleClick() {
-        alert ('hi')
+        navigate("/home")
     }
 
     return (

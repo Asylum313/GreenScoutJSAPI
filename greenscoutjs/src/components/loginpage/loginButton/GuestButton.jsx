@@ -1,8 +1,11 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import "./GuestButton.css"
 
 function GuestButton () {
+    const navigate = useNavigate();
+
     function handleClick() {
-        alert("Logged In As Guest");
+        navigate("/home")
     }
     return (
         <p onClick={handleClick}>Login As Guest</p>
