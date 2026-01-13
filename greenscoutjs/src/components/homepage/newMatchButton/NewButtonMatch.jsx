@@ -1,8 +1,14 @@
 import "./NewButtonMatch.css"
+import { Navigate, useNavigate } from "react-router-dom";
 
 function NewButtonMatch () {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/match")
+    }
     return (
-        <button id="newmatchbutton"></button>
+        <button onClick={handleClick} id="newmatchbutton"></button>
     )
 }
 

@@ -30,15 +30,6 @@ h1 {
     background-color: #f8f9fe;
 }
 
-#navbar {
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 8vh;
-    background-color: #9bcbfb;
-}
-
 .input {
     border: none;
 }

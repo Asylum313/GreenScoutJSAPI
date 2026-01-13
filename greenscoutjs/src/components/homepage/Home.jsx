@@ -1,3 +1,4 @@
+import NavComponent from "../NavComponent";
 import "./Home.css"
 import NewButtonMatch from "./newMatchButton/NewButtonMatch";
 import NewButtonPit from "./newPitButton/NewButtonPit";
@@ -9,7 +10,7 @@ function Home () {
 
     return (
         <span id="body">
-            <nav id="navbar"></nav>
+            <NavComponent></NavComponent>
             <div id="refreshButtonContainer">
                 <button id="refreshButton" onClick={refreshPage}></button>
             </div>
