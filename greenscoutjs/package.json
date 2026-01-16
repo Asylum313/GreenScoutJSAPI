@@ -1,15 +1,20 @@
 {
+  "homepage": "https://thegreenmachine.github.io/GreenScoutJS/greenscoutjs/",
   "name": "greenscoutjs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d dist",
     "dev": "vite",
     "build": "vite build",
+    "start": "react-scripts start",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1",
