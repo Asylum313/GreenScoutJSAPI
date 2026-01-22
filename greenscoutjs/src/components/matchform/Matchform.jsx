@@ -14,6 +14,7 @@ import EndDropDown from "./auto/dropdown/EndDropDown";
 import SubmitButton from "./submitbuttons/SubmitButton";
 import ReplayButton from "./submitbuttons/ReplayButton";
 import Cycles from "./teleopcycles/Cycles";
+import CycleTimerToggle from "./teleopcycles/CycleTimerToggle";
 
 function Matchform() {
   const [formData, setFormData] = useState({
@@ -37,12 +38,14 @@ function Matchform() {
   });
 
   const [time, setTime] = useState(0);
+  const [cycleTime, setCycleTime] = useState(0);
 
   const firstCount = "Scores";
   const secondCount = "Misses";
   const thirdCount = "Ejects";
 
   const [isRunning, setIsRunning] = useState(false);
+  const [isCycleRunning, setIsCycleRunning] = useState(false);
   const [resetKey, setResetKey] = useState(0);
 
   const [cycleList, setCycleList] = useState([]);
@@ -96,8 +99,17 @@ function Matchform() {
     URL.revokeObjectURL(url);
   };
 
+  const toggleCycleStopwatch = (event) => {
+    if (event) event.preventDefault();
+    setIsCycleRunning(!isCycleRunning);
+  };
+
   const addCycleEvent = (eventName) => {
-    setCycleList((prevList) => [...prevList, eventName]);
+    const currentTime = (cycleTime / 1000).toFixed(2);
+    setCycleList((prevList) => [
+      ...prevList,
+      { event: eventName, time: currentTime },
+    ]);
   };
 
   return (
@@ -166,7 +178,13 @@ function Matchform() {
           <div className="child" id="headparent">
             <h1 className="header">Cycles</h1>
           </div>
-          <Cycles list={cycleList}></Cycles>
+          <Cycles
+            list={cycleList}
+            runningBool={isCycleRunning}
+            time={cycleTime}
+            setTime={setCycleTime}
+            onChange={handleChange}
+          ></Cycles>
           <div className="child" id="headparent">
             <h1 className="header">Collection Ability</h1>
           </div>
@@ -259,6 +277,10 @@ function Matchform() {
         </form>
 
         <div id="formScore" className="formElement">
+          <CycleTimerToggle
+            isCycleRunning={isCycleRunning}
+            onTrigger={toggleCycleStopwatch}
+          ></CycleTimerToggle>
           <TriggerButton onTrigger={toggleStopwatch}></TriggerButton>
           {/* <TriggerButton onTrigger={() => addCycleEvent("E")}></TriggerButton> */}
         </div>
