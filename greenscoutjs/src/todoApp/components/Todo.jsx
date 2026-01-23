@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../TodoIndex.css"
 
 function Todo(props) {
   const [isEditing, setEditing] = useState(false);
@@ -27,7 +28,7 @@ function Todo(props) {
         />
       </div>
       <div className="btn-group">
-        <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
+        <button type="button" className="btn" onClick={() => setEditing(false)}>
           Cancel
           <span className="visually-hidden">renaming {props.name}</span>
         </button>

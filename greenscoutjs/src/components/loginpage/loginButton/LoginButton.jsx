@@ -1,8 +1,11 @@
 import "./LoginButton.css";
-import { Navigate, useNavigate } from "react-router-dom";
 
-function LoginButton({ onClick}) {
-  return <button onClick={onClick}>Continue</button>;
+function LoginButton({ onClick }) {
+  return (
+    <button id="loginButton" onClick={onClick}>
+      Continue
+    </button>
+  );
 }
 
 export default LoginButton;

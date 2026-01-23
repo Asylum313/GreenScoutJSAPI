@@ -15,6 +15,8 @@ import SubmitButton from "./submitbuttons/SubmitButton";
 import ReplayButton from "./submitbuttons/ReplayButton";
 import Cycles from "./teleopcycles/Cycles";
 import CycleTimerToggle from "./teleopcycles/CycleTimerToggle";
+import ScoreButton from "./teleopcycles/ScoreButton";
+import ShuttleButton from "./teleopcycles/ShuttleButton";
 
 function Matchform() {
   const [formData, setFormData] = useState({
@@ -105,11 +107,13 @@ function Matchform() {
   };
 
   const addCycleEvent = (eventName) => {
-    const currentTime = (cycleTime / 1000).toFixed(2);
-    setCycleList((prevList) => [
-      ...prevList,
-      { event: eventName, time: currentTime },
-    ]);
+    if (isCycleRunning) {
+      const currentTime = (cycleTime / 1000).toFixed(2);
+      setCycleList((prevList) => [
+        ...prevList,
+        { event: eventName, time: currentTime },
+      ]);
+    }
   };
 
   return (
@@ -281,8 +285,11 @@ function Matchform() {
             isCycleRunning={isCycleRunning}
             onTrigger={toggleCycleStopwatch}
           ></CycleTimerToggle>
+          <ScoreButton onTrigger={() => addCycleEvent("Score")}></ScoreButton>
+          <ShuttleButton
+            onTrigger={() => addCycleEvent("Shuttle")}
+          ></ShuttleButton>
           <TriggerButton onTrigger={toggleStopwatch}></TriggerButton>
-          {/* <TriggerButton onTrigger={() => addCycleEvent("E")}></TriggerButton> */}
         </div>
       </span>
     </span>

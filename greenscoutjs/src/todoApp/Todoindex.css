@@ -76,12 +76,37 @@ body {
   margin-top: 0.4rem;
 }
 .btn {
+  margin-top: 5.7vh;
+  margin-bottom: 4.4vh;
+  width: 13vw;
+  height: 5.8vh;
+  background-color: #cee5ff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px rgb(164, 164, 164);
+  color: #5f6167;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1;
+  outline: none;
+  font-size: smaller;
   border: 0.2rem solid #4d4d4d;
   cursor: pointer;
   padding: 0.8rem 1rem 0.7rem;
   text-transform: capitalize;
 }
 .btn.toggle-btn {
+  margin-top: 5.7vh;
+  margin-bottom: 4.4vh;
+  width: 13vw;
+  height: 5.8vh;
+  background-color: #cee5ff;
+  border: 1px #cee5ff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px rgb(164, 164, 164);
+  color: #5f6167;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1;
+  outline: none;
+  font-size: smaller;
   border-color: lightgray;
   border-width: 1px;
 }
@@ -98,6 +123,17 @@ body {
   border-color: lightgrey;
 }
 .btn__primary {
+  margin-top: 5.7vh;
+  margin-bottom: 4.4vh;
+  width: 13vw;
+  height: 5.8vh;
+  border: 1px #cee5ff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px rgb(164, 164, 164);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1;
+  outline: none;
+  font-size: smaller;
   background-color: black;
   color: white;
 }
