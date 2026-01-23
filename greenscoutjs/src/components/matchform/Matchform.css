@@ -163,17 +163,63 @@
   overflow-x: hidden;
 }
 
-.cycleElement {
+.Score {
   width: 80vw;
   height: 7vh;
   text-align: center;
   color: black;
   text-decoration: none;
   font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cycleElement:hover {
+.Score:hover {
   background-color: #cee5ff;
   cursor: pointer;
-  /* height: 5vh; */
+}
+
+.Score > .cycleElementImg {
+  left: 0;
+  position: relative;
+  height: 4vw;
+  width: 4vw;
+  background-image: url("../../assets/meteor-solid-full.svg");
+  background-size: 3vw 3vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Shuttle {
+  width: 80vw;
+  height: 7vh;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Shuttle:hover {
+  background-color: #cee5ff;
+  cursor: pointer;
+}
+
+.Shuttle > .cycleElementImg {
+  left: 0;
+  position: relative;
+  height: 4vw;
+  width: 4vw;
+  background-image: url("../../assets/bus-side-solid-full.svg");
+  background-size: 3vw 3vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cycleElementText {
+  width: 60vw;
+  height: inherit;
 }

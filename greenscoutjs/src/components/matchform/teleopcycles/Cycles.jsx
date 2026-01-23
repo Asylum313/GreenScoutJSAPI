@@ -19,8 +19,11 @@ const Cycles = ({ list, runningBool, setTime }) => {
   return (
     <div id="cycleContainer">
       {list.map((item, index) => (
-        <div key={index} className="cycleElement">
-          {item.event} {item.time}s
+        <div className={item.event} key={index}>
+          <div className="cycleElementImg"></div>
+          <div className="cycleElementText">
+            {item.event} {item.time}s
+          </div>
         </div>
       ))}
     </div>
