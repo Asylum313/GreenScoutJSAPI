@@ -1,7 +1,7 @@
 import "./CycleButton.css";
 import { useState } from "react";
 
-function CycleTimerToggle({ isCycleRunning, onTrigger }) {
+function CycleTimerToggle({ isCycleRunning, onTrigger, active }) {
   const [idz, setIdz] = useState("cycleImg");
 
   const setTheId = () => {
@@ -14,6 +14,7 @@ function CycleTimerToggle({ isCycleRunning, onTrigger }) {
 
   return (
     <button
+      className={active}
       id="sideButtonCycleTrigger"
       onClick={() => {
         onTrigger();

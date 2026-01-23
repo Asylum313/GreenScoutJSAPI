@@ -1,8 +1,8 @@
 import "./ShuttleButton.css";
 
-function ShuttleButton({ onTrigger }) {
+function ShuttleButton({ onTrigger, active }) {
   return (
-    <button id="shuttleButton" onClick={onTrigger}>
+    <button className={active} id="shuttleButton" onClick={onTrigger}>
       <div id="shuttleButtonImg"></div>
       Shuttle
     </button>

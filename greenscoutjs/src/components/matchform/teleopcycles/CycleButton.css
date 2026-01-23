@@ -1,4 +1,4 @@
-#sideButtonCycleTrigger {
+#sideButtonCycleTrigger.true {
   margin-top: 5.7vh;
   margin-bottom: 4.4vh;
   background-color: #cee5ff;
@@ -6,6 +6,25 @@
   border-radius: 15px;
   box-shadow: 0px 4px 5px rgb(164, 164, 164);
   color: #5f6167;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1;
+  outline: none;
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  top: 4vh;
+  font-size: 10px;
+  text-align: center;
+}
+
+#sideButtonCycleTrigger.false {
+  margin-top: 5.7vh;
+  margin-bottom: 4.4vh;
+  background-color: red;
+  border: 1px red;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px rgb(164, 164, 164);
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 1;
   outline: none;
@@ -32,5 +51,5 @@
   background-image: url("../../../assets/square-solid-full.svg");
   background-size: 1.7vw 1.7vw;
   background-repeat: no-repeat;
-  background-position: 3px 1px;
+  background-position: 4px 1px;
 }

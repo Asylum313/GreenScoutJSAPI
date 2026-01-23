@@ -1,8 +1,8 @@
 import "./ScoreButton.css";
 
-function ScoreButton({ onTrigger }) {
+function ScoreButton({ onTrigger, active }) {
   return (
-    <button id="scoreButton" onClick={onTrigger}>
+    <button className={active} id="scoreButton" onClick={onTrigger}>
       <div id="scoreButtonImg"></div>
       Score
     </button>

@@ -52,7 +52,7 @@ function Matchform() {
 
   const [cycleList, setCycleList] = useState([]);
 
-  // const sideButtons = ["Cycles", "Score", "Shuttle"];
+  const [isButtonActive, setIsButtonActive] = useState("true");
 
   const toggleStopwatch = (event) => {
     if (event) event.preventDefault();
@@ -104,6 +104,11 @@ function Matchform() {
   const toggleCycleStopwatch = (event) => {
     if (event) event.preventDefault();
     setIsCycleRunning(!isCycleRunning);
+    if (isCycleRunning) {
+      setIsButtonActive("true");
+    } else {
+      setIsButtonActive("false");
+    }
   };
 
   const addCycleEvent = (eventName) => {
@@ -282,11 +287,16 @@ function Matchform() {
 
         <div id="formScore" className="formElement">
           <CycleTimerToggle
+            active={isButtonActive}
             isCycleRunning={isCycleRunning}
             onTrigger={toggleCycleStopwatch}
           ></CycleTimerToggle>
-          <ScoreButton onTrigger={() => addCycleEvent("Score")}></ScoreButton>
+          <ScoreButton
+            active={isButtonActive}
+            onTrigger={() => addCycleEvent("Score")}
+          ></ScoreButton>
           <ShuttleButton
+            active={isButtonActive}
             onTrigger={() => addCycleEvent("Shuttle")}
           ></ShuttleButton>
           <TriggerButton onTrigger={toggleStopwatch}></TriggerButton>

@@ -1,4 +1,4 @@
-#scoreButton {
+#scoreButton.false {
   margin-top: 5.7vh;
   margin-bottom: 4.4vh;
   background-color: #cee5ff;
@@ -6,6 +6,25 @@
   border-radius: 15px;
   box-shadow: 0px 4px 5px rgb(164, 164, 164);
   color: #5f6167;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 1;
+  outline: none;
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  top: 13vh;
+  font-size: 10px;
+  text-align: center;
+}
+
+#scoreButton.true {
+  margin-top: 5.7vh;
+  margin-bottom: 4.4vh;
+  background-color: #5f6167;
+  border: 1px #5f6167;
+  border-radius: 15px;
+  box-shadow: 0px 4px 5px rgb(164, 164, 164);
+  color: #cee5ff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 1;
   outline: none;
