@@ -1,7 +1,7 @@
 import "../Matchform.css";
 import { useEffect, useRef } from "react";
 
-const Cycles = ({ list, runningBool, setTime }) => {
+const Cycles = ({ list, runningBool, setTime, onTrigger }) => {
   const timerCycleRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +16,11 @@ const Cycles = ({ list, runningBool, setTime }) => {
     return () => clearInterval(timerCycleRef.current);
   }, [runningBool, setTime]);
 
+  const remove = (ind, event) => {
+    if (event) event.preventDefault();
+    onTrigger(ind);
+  };
+
   return (
     <div id="cycleContainer">
       {list.map((item, index) => (
@@ -24,6 +29,10 @@ const Cycles = ({ list, runningBool, setTime }) => {
           <div className="cycleElementText">
             {item.event} {item.time}s
           </div>
+          <button
+            className="deleteButton"
+            onClick={(event) => remove(index, event)}
+          ></button>
         </div>
       ))}
     </div>

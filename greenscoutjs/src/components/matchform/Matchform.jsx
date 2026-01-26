@@ -121,6 +121,13 @@ function Matchform() {
     }
   };
 
+  const removeCycleEvent = (indexRemoval) => {
+    setCycleList((prevList) => [
+      ...prevList.slice(0, indexRemoval),
+      ...prevList.slice(indexRemoval + 1),
+    ]);
+  };
+
   return (
     <span id="body">
       <NavComponent></NavComponent>
@@ -193,6 +200,7 @@ function Matchform() {
             time={cycleTime}
             setTime={setCycleTime}
             onChange={handleChange}
+            onTrigger={removeCycleEvent}
           ></Cycles>
           <div className="child" id="headparent">
             <h1 className="header">Collection Ability</h1>
