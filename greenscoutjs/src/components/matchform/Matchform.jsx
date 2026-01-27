@@ -291,6 +291,7 @@ function Matchform() {
           >
             Save
           </SubmitButton>
+          <div id="bottomspace"></div>
         </form>
         <div id="formScore" className="formElement">
           <CycleTimerToggle
