@@ -292,7 +292,6 @@ function Matchform() {
             Save
           </SubmitButton>
         </form>
-
         <div id="formScore" className="formElement">
           <CycleTimerToggle
             active={isButtonActive}
@@ -307,7 +306,10 @@ function Matchform() {
             active={isButtonActive}
             onTrigger={() => addCycleEvent("Shuttle")}
           ></ShuttleButton>
-          <TriggerButton onTrigger={toggleStopwatch}></TriggerButton>
+          <TriggerButton
+            onTrigger={toggleStopwatch}
+            active={isRunning}
+          ></TriggerButton>
         </div>
       </span>
     </span>

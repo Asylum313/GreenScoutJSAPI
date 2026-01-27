@@ -1,21 +1,30 @@
 #sideButtonTrigger {
   margin-top: 5.7vh;
   margin-bottom: 4.4vh;
-  background-color: #cee5ff;
-  border: 1px #cee5ff;
   border-radius: 15px;
   box-shadow: 0px 4px 5px rgb(164, 164, 164);
   color: #5f6167;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 1;
+  font-weight: 400;
   outline: none;
-  font-size: smaller;
-  width: 3vw;
-  height: 3vw;
+  width: 6.5vh;
+  height: 6.5vh;
   position: absolute;
   bottom: 0;
   font-size: 10px;
   text-align: center;
+  border: 1px solid;
+  transition: background-color 0.2s ease;
+}
+
+#sideButtonTrigger.active {
+  background-color: #ceffdc;
+  border-color: #ceffdc;
+}
+
+#sideButtonTrigger.inactive {
+  background-color: #cee5ff;
+  border-color: #cee5ff;
 }
 
 #stopbuttonimg {
