@@ -1,41 +1,75 @@
 import "./Login.css";
 import Username from "./username/username";
-import Password from "./password/password";
+import Password from "./password/passwordBox";
 import LoginButton from "./loginButton/LoginButton";
-import { useState } from "react";
 import GuestButton from "./loginButton/GuestButton";
 import NavComponentLogin from "../NavComponentLogin";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../UseAuth";
 
-function Login() {
+function Login({ accountList }) {
+  const { login, user } = useAuth();
   const navigate = useNavigate();
-  const [user, setUsername] = useState("");
-  const [pass, setPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
 
-  function handleLogin() {
-    // console.log("Hello");
+  useEffect(() => {
+    if (user) {
+      navigate("/GreenScoutJS/home");
+    }
+  }, [user, navigate]);
+
+  const handleLogin = (e) => {
+    if(e) e.preventDefault();
+
+    const account = accountList.find(
+      (acc) => acc.user === username && acc.pass === password,
+    );
+
+    if (account) {
+      const token = "mock-token-" + Date.now();
+
+      login(account, token);
+
+      navigate("/GreenScoutJS/home");
+    } else {
+      setError("This Account Does Not Exist");
+    }
+  };
+
+  const handleGuestLogin = () => {
+    const guestAccount = {
+      id: 0,
+      user: "Guest",
+      role: "Guest",
+      matchesLogged: 0,
+    };
+    const token = "guest-token-" + Date.now();
+
+    login(guestAccount, token);
     navigate("/GreenScoutJS/home");
-  }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
 
   return (
-    <span id="body">
+    <div id="body">
       <NavComponentLogin></NavComponentLogin>
-      <span id="parent" className="text">
+      <div id="parent" className="text" onKeyPress={handleKeyPress}>
         <h1 className="textlogin">Login</h1>
-        <Username
-          className="input"
-          value={user}
-          onChange={setUsername}
-        ></Username>
-        <Password
-          className="input"
-          value={pass}
-          onChange={setPassword}
-        ></Password>
+        <Username className="input" onUserChange={setUsername}></Username>
+        <Password className="input" onPasswordChange={setPassword}></Password>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <LoginButton onClick={handleLogin}></LoginButton>
-        <GuestButton></GuestButton>
-      </span>
-    </span>
+        <GuestButton onClick={handleGuestLogin}></GuestButton>
+      </div>
+    </div>
   );
 }
 

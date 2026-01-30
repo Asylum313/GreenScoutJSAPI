@@ -1,10 +1,13 @@
 import "./username.css";
 
-function Username() {
+function Username({ onUserChange }) {
+  const handleChange = (e) => {
+    onUserChange(e.target.value);
+  }
+
   return (
     <form>
-      <input placeholder="Username" type="text" id="user" />
-      {/* value={value} onChange={(e) => onChange(e.target.value) */}
+      <input placeholder="Username" type="text" id="user" onChange={handleChange}/>
     </form>
   );
 }
