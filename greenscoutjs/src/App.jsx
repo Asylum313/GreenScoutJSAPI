@@ -1,15 +1,6 @@
 import "./App.css";
-import Login from "./components/loginpage/Login";
-import Home from "./components/homepage/Home";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
-import Matchform from "./components/matchform/Matchform";
-import { AuthProvider } from "./AuthProvider";
-import ProtectedRoute from "./ProtectedRoute";
+import { AuthProvider } from "./provider/authProvider";
+import Routes from "./routes";
 
 function App() {
   const accounts = [
@@ -24,33 +15,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <Router>
-        <Routes>
-          <Route
-            exact
-            path="/GreenScoutJS"
-            element={<Login accountList={accounts} />}
-          />
-          <Route
-            path="/GreenScoutJS/home"
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/GreenScoutJS/match"
-            element={
-              <ProtectedRoute>
-                <Matchform />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route path="*" element={<Navigate to="/GreenScoutJS" replace />} />
-        </Routes>
-      </Router>
+      <Routes accounts={accounts} />
     </AuthProvider>
   );
 }

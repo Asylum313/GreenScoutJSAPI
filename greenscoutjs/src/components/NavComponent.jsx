@@ -1,6 +1,6 @@
 import "./NavComponent.css";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../UseAuth";
+import { useAuth } from "../provider/authContext";
 
 function NavComponent() {
   const { logout } = useAuth();
